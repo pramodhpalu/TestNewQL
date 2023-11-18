@@ -38,7 +38,7 @@ jobs:
 
     - name: Resolve CocoaPods Dependencies
       run: |
-        cd Code Sample
+        cd "Code Sample"
         pod install
 
     - name: Build
