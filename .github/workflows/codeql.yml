@@ -56,12 +56,12 @@ jobs:
 
     - name: Convert SARIF to HTML
       run: |
-          npm install -g sarif-to-html
-          sarif-to-html -i /path/to/your/swift.sarif -o swift_report.html
-          echo "::set-output name=html_report::swift_report.html"
+        npm install -g sarif-to-html
+        sarif-to-html -i /Users/runner/work/TestNewQL/results/swift.sarif -o swift_report.html
+        echo "::set-output name=html_report::swift_report.html"
 
     - name: Upload HTML report
       uses: actions/upload-artifact@v2
       with:
-          name: codeql-report
-          path: swift_report.html
+        name: codeql-report
+        path: swift_report.html
