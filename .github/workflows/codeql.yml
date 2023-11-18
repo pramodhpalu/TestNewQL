@@ -43,7 +43,7 @@ jobs:
 
     - name: Build
       run: |
-        cd Code Sample
+        cd "Code Sample"
         xcodebuild clean build \
         -workspace "Code Sample.xcworkspace" \
         -scheme "Code Sample" \
