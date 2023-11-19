@@ -1,0 +1,55 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '38 5 * * 1'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: 'macos-13'
+
+    timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'swift' ]
+
+    steps:
+    - name: Check Xcode version
+      run: xcodebuild -version
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: 'swift'
+
+    - name: Resolve CocoaPods Dependencies
+      run: |
+        cd "Code Sample"
+        pod install
+
+    - name: Build
+      run: |
+        cd "Code Sample"
+        xcodebuild clean build \
+        -workspace "Code Sample.xcworkspace" \
+        -scheme "Code Sample" \
+        -destination "platform=iOS Simulator,name=iPhone 14,OS=16.4"
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:swift"
