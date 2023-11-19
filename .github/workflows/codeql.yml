@@ -53,21 +53,20 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:swift"
-        
+        paths: 'path/to/analyze'  # Add paths to focus analysis (e.g., specific folders)
+
+        # CodeQL Optimization configurations
+        codeql: |
+          queries.ignore: 
+            - 'query-name-to-ignore'  # Exclude specific queries if they're not essential
+            
+          incremental: true  # Enable incremental analysis if applicable
+          
+          cache:
+            enable: true  # Enable caching for faster subsequent analyses
+
     - name: Save SARIF file as an artifact
       uses: actions/upload-artifact@v2
       with:
         name: swift-sarif
         path: /Users/runner/work/TestNewQL/results/swift.sarif
-
-    # - name: Convert SARIF to HTML
-    #   run: |
-    #     npm install -g sarif-to-html
-    #     sarif-to-html -i /Users/runner/work/TestNewQL/results/swift.sarif -o swift_report.html
-    #     echo "::set-output name=html_report::swift_report.html"
-
-    - name: Upload HTML report
-      uses: actions/upload-artifact@v2
-      with:
-        name: codeql-report
-        path: swift_report.html
