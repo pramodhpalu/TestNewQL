@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CryptoKit
 
 class ViewController: UIViewController {
 
@@ -33,6 +34,9 @@ class ViewController: UIViewController {
         login(username: "test", password: "test")
         cacheSensitiveData(userData: ["username": "test", "password": "test"])
         retrieveUserData()
+        // Usage
+        let userInput = "aaaaaaaaaaaaaaaaaaaaaaaaaaX" // Input that triggers ReDoS
+        let isValid = validateInput(input: userInput)
     }
     
 
@@ -73,6 +77,52 @@ class ViewController: UIViewController {
         // ...
         // Log the entered password (unsafe)
         print("Entered Password: \(password)")
+    }
+    
+    
+    func validateInput(input: String) -> Bool {
+        // This pattern is susceptible to exponential time matching
+        let regex = #"^(([a-z])+.)+[A-Z]([a-z])+$"#
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: input)
+    }
+
+  
+    func encrypt(data: Data) -> Data? {
+        let key = "MySecretEncryptionKey" // Hardcoded encryption key
+
+        guard let keyData = key.data(using: .utf8) else {
+            return nil
+        }
+
+        // Use the key to perform encryption
+        // Example using CommonCrypto for AES encryption (simplified)
+        // Do not use this for actual encryption, it's just an example
+//        let encryptedData = performAESEncryption(data: data, key: keyData)
+//
+//        return encryptedData
+        return nil
+    }
+   
+
+    func hashPassword(password: String) -> String? {
+        guard let passwordData = password.data(using: .utf8) else {
+            return nil
+        }
+
+        let salt = generateRandomSalt() // Function to generate a random salt
+        
+        var hashed = SHA256.hash(data: passwordData + salt)
+        for _ in 1..<10000 {
+            hashed = SHA256.hash(data: hashed + salt)
+        }
+
+        return hashed.compactMap { String(format: "%02x", $0) }.joined()
+    }
+
+    func generateRandomSalt() -> Data {
+        var key = [UInt8](repeating: 0, count: 16) // 128-bit salt size
+        _ = SecRandomCopyBytes(kSecRandomDefault, key.count, &key)
+        return Data(key)
     }
 
 }
