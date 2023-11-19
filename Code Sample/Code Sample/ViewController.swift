@@ -28,6 +28,11 @@ class ViewController: UIViewController {
         } else {
             print("URL 2 is invalid")
         }
+        
+        retrieveUserData()
+        login(username: "test", password: "test")
+        cacheSensitiveData(userData: ["username": "test", "password": "test"])
+        retrieveUserData()
     }
     
 
@@ -40,8 +45,35 @@ class ViewController: UIViewController {
     }
 
    
+    func retrieveUserData() {
+        // Simulating an API call to fetch user data
+        let userData = "https://skilful-union-399804.uc.r.appspot.com/stripecustomers"
 
+        // Logging user data - this is unsafe!
+        print("User Data: \(userData)")
+    }
 
+    func sendUserDataToServer(userData: [String: Any]) {
+        guard let url = URL(string: "https://api.example.com/userData") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try? JSONSerialization.data(withJSONObject: userData, options: [])
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            // Handle the response, possibly without considering SSL pinning or HTTPS usage
+        }.resume()
+    }
+    
+    func cacheSensitiveData(userData: [String: Any]) {
+        UserDefaults.standard.set(userData, forKey: "userData")
+    }
+    
+    func login(username: String, password: String) {
+        // Sending login request...
+        // ...
+        // Log the entered password (unsafe)
+        print("Entered Password: \(password)")
+    }
 
 }
 
