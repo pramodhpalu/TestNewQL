@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '15.1'
 
 target 'Code Sample' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,6 +7,10 @@ target 'Code Sample' do
 
   # Pods for Code Sample
   pod 'IQKeyboardManager'
+  pod 'PNChart'
+  
+  
+
   pod 'AEPTarget'
   pod 'AEPCore'
   pod 'AEPUserProfile'
