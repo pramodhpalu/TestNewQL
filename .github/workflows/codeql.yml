@@ -35,6 +35,14 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: 'swift'
+        
+    - name: Cache CocoaPods repository
+      uses: actions/cache@v2
+      with:
+        path: ~/.cocoapods
+        key: ${{ runner.os }}-cocoapods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cocoapods-
 
     - name: Resolve CocoaPods Dependencies
       run: |
