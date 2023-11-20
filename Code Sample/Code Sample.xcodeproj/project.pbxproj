@@ -14,8 +14,6 @@
 		A54F7F852B08A87F009BB4A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A54F7F842B08A87F009BB4A6 /* Assets.xcassets */; };
 		A54F7F882B08A87F009BB4A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54F7F862B08A87F009BB4A6 /* LaunchScreen.storyboard */; };
 		A54F7F912B08A8A5009BB4A6 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7F902B08A8A5009BB4A6 /* SVProgressHUD */; };
-		A54F7F942B0B2254009BB4A6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7F932B0B2254009BB4A6 /* Alamofire */; };
-		A54F7F972B0B2271009BB4A6 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7F962B0B2271009BB4A6 /* DGCharts */; };
 		A54F7F9B2B0B2305009BB4A6 /* Qualtrics in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7F9A2B0B2305009BB4A6 /* Qualtrics */; };
 		A54F7F9E2B0B2524009BB4A6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A54F7F9D2B0B2524009BB4A6 /* SnapKit */; };
 /* End PBXBuildFile section */
@@ -38,8 +36,6 @@
 			files = (
 				A54F7F912B08A8A5009BB4A6 /* SVProgressHUD in Frameworks */,
 				A54F7F9B2B0B2305009BB4A6 /* Qualtrics in Frameworks */,
-				A54F7F972B0B2271009BB4A6 /* DGCharts in Frameworks */,
-				A54F7F942B0B2254009BB4A6 /* Alamofire in Frameworks */,
 				A54F7F9E2B0B2524009BB4A6 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,8 +91,6 @@
 			name = "Code Sample";
 			packageProductDependencies = (
 				A54F7F902B08A8A5009BB4A6 /* SVProgressHUD */,
-				A54F7F932B0B2254009BB4A6 /* Alamofire */,
-				A54F7F962B0B2271009BB4A6 /* DGCharts */,
 				A54F7F9A2B0B2305009BB4A6 /* Qualtrics */,
 				A54F7F9D2B0B2524009BB4A6 /* SnapKit */,
 			);
@@ -130,9 +124,6 @@
 			mainGroup = A54F7F6F2B08A87E009BB4A6;
 			packageReferences = (
 				A54F7F8F2B08A8A5009BB4A6 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
-				A54F7F922B0B2254009BB4A6 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				A54F7F952B0B2271009BB4A6 /* XCRemoteSwiftPackageReference "Charts" */,
-				A54F7F982B0B22D3009BB4A6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A54F7F992B0B2305009BB4A6 /* XCRemoteSwiftPackageReference "qualtrics-digital-ios-sdk" */,
 				A54F7F9C2B0B2524009BB4A6 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
@@ -393,30 +384,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		A54F7F922B0B2254009BB4A6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		A54F7F952B0B2271009BB4A6 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		A54F7F982B0B22D3009BB4A6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
 		A54F7F992B0B2305009BB4A6 /* XCRemoteSwiftPackageReference "qualtrics-digital-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/qualtrics/qualtrics-digital-ios-sdk.git";
@@ -440,16 +407,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A54F7F8F2B08A8A5009BB4A6 /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
 			productName = SVProgressHUD;
-		};
-		A54F7F932B0B2254009BB4A6 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A54F7F922B0B2254009BB4A6 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		A54F7F962B0B2271009BB4A6 /* DGCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A54F7F952B0B2271009BB4A6 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = DGCharts;
 		};
 		A54F7F9A2B0B2305009BB4A6 /* Qualtrics */ = {
 			isa = XCSwiftPackageProductDependency;
