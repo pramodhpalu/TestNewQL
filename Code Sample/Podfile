@@ -12,7 +12,7 @@ target 'Code Sample' do
   pod 'AEPUserProfile'
   pod 'AEPIdentity'
   pod 'AEPSignal'
-  pod 'AEPLifeCycle'
+  pod 'AEPLifecycle'
   pod 'AEPAnalytics'
   pod 'AEPAssurance'
 end
