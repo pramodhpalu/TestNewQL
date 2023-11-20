@@ -8,8 +8,6 @@ target 'Code Sample' do
   # Pods for Code Sample
   pod 'IQKeyboardManager'
   pod 'PNChart'
-  pod 'DLRadioButton'
-  pod 'TPKeyboardAvoiding'
   pod 'FSCalendar'
 
   pod 'AEPTarget'
