@@ -44,6 +44,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-cocoapods-
 
+    - name: Customize CocoaPods Source
+      run: |
+        echo "source 'https://cdn.cocoapods.org/'" >> "Code Sample/Podfile"  # Add this line if not already present
+        
+        # Clear CocoaPods cache
+        pod cache clean --all
+        
     - name: Resolve CocoaPods Dependencies
       run: |
         cd "Code Sample"
