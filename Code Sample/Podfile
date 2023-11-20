@@ -6,9 +6,6 @@ target 'Code Sample' do
   use_frameworks!
 
   # Pods for Code Sample
-  pod 'IQKeyboardManager'
-  pod 'PNChart'
-  pod 'FSCalendar'
 
   pod 'AEPTarget'
   pod 'AEPCore'
